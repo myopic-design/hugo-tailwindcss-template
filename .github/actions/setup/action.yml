@@ -1,0 +1,39 @@
+name: Setup
+description: "Install required dependencies and build site"
+
+inputs:
+  hugo-version:
+    description: "Hugo version"
+    required: true
+    default: "0.111.3"
+  node-version:
+    description: "Node version"
+    required: true
+    default: "18"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: ${{ inputs.hugo-version }}
+        extended: true
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: "7"
+    - name: Set up Node ${{ inputs.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: "pnpm"
+    - name: Install dependencies
+      run: pnpm install
+      shell: bash
+    - name: Install Playwright browsers
+      run: pnpm playwright install --with-deps
+      shell: bash
+    - name: Install PostCSS globally
+      run: npm install -g postcss-cli
+      shell: bash

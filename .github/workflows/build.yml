@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  workflow_call:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Run e2e tests
+        run: pnpm test:e2e
+      - name: Build
+        run: pnpm build
+      - name: Upload website
+        uses: actions/upload-artifact@v3
+        with:
+          name: website
+          path: public/
+          retention-days: 1
+      - name: Upload e2e test reports
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: e2e-reports
+          path: |
+            e2e-report/
+            e2e-results/
+          retention-days: 7
