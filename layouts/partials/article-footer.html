@@ -1,0 +1,10 @@
+{{ if .Params.date }}
+  {{ $tagLinks := partial "utils/tags-text" . }}
+
+  <footer>
+    <p>
+      Posted on <a href="{{ .RelPermalink }}" class="u-url u-uid">{{ partial "utils/article-time" .Date }}</a>
+      {{- if $tagLinks }} under {{ $tagLinks }}{{ end -}}.
+    </p>
+  </footer>
+{{ end }}

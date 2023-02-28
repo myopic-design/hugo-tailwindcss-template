@@ -1,0 +1,9 @@
+<h{{ .Level }} id="{{ .Anchor | safeURL }}" class="group">
+  {{ .Text | safeHTML }}<a
+    title="Direct link to heading"
+    href="#{{ .Anchor | safeURL }}"
+    aria-hidden="true"
+    tabindex="-1"
+    class="mx-2 no-underline opacity-0 transition-opacity before:content-['#'] group-hover:opacity-100 group-focus:opacity-100 print:hidden"
+  ></a>
+</h{{ .Level }}>

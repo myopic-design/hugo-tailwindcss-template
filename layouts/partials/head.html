@@ -1,0 +1,23 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <title>{{ if .IsHome }}{{ site.Title }} — {{ site.Params.description }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+
+  {{ partial "styles" . }}
+
+  <link rel="icon" sizes="any" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+  <link rel="canonical" href="{{ .Permalink | safeURL }}" />
+  {{ if .PrevInSection }}<link rel="prev" href="{{ .PrevInSection.Permalink | safeURL }}" />{{ end }}
+  {{ if .NextInSection }}<link rel="next" href="{{ .NextInSection.Permalink | safeURL }}" />{{ end }}
+
+  {{ range (site.GetPage "/").AlternativeOutputFormats }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" title="{{ site.Title }}" href="{{ .RelPermalink | safeURL }}" />
+  {{ end }}
+
+  {{ partial "meta" . }}
+</head>

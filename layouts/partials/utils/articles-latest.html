@@ -1,0 +1,3 @@
+{{ $articleLatestCount := site.Params.articleLatestCount | default 10 }}
+
+{{ return first $articleLatestCount (where site.RegularPages "Type" "in" (slice "blog" "playground")) }}

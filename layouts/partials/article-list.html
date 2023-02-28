@@ -1,0 +1,15 @@
+<div class="h-feed">
+  <h2 class="sr-only">Latest articles</h2>
+  {{ range . }}
+    <article class="h-entry">
+      <h3>
+        <a href="{{ .RelPermalink }}" class="p-name u-url u-uid">
+          {{ .Title | markdownify }}
+        </a>
+      </h3>
+      <footer>
+        {{ partial "utils/article-meta" . }}
+      </footer>
+    </article>
+  {{ end }}
+</div>

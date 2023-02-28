@@ -1,0 +1,3 @@
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+
+{{ partial "utils/img" (dict "img" $img "src" .Destination "alt" .Text) }}

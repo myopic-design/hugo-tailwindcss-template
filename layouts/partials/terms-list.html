@@ -1,0 +1,24 @@
+{{ $scaleMax := 1 }}
+{{ $scaleMin := 4 }}
+{{ $scaleSpread := sub $scaleMin $scaleMax }}
+
+{{ $scoreMax := len (index .ByCount 0).Pages }}
+{{ $scoreMin := len (index .ByCount.Reverse 0).Pages }}
+{{ $scoreSpread := sub $scoreMax $scoreMin }}
+
+{{ $scaleStep := 0.0 }}
+{{ if gt $scoreSpread 0 }}
+  {{ $scaleStep = div $scaleSpread (float $scoreSpread) }}
+{{ end }}
+
+{{ $textSizes := slice "text-6xl" "text-5xl" "text-4xl" "text-3xl" }}
+
+<ul>
+  {{ range .Alphabetical }}
+    {{ $currentScale := int (math.Round (add 1 (sub $scaleMin (add $scaleMax (mul (sub .Count $scoreMin) $scaleStep))))) }}
+    {{ $currentTextSize := index $textSizes $currentScale }}
+    <li>
+      <a href="{{ .Page.RelPermalink }}" class="{{ $currentTextSize }}">{{ .Page.Title }}</a>
+    </li>
+  {{ end }}
+</ul>

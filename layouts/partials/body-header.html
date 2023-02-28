@@ -1,0 +1,27 @@
+<header>
+  <nav aria-label="main">
+    <ul>
+      <li>
+        <a
+          href="/"
+          aria-label="Home"
+          {{ if .IsHome }}aria-current="page"{{ end }}
+          class="hover:underline focus:underline"
+          >{{ site.Title }}</a
+        >
+      </li>
+      {{ $currentPage := . }}
+      {{ range site.Menus.main }}
+        {{ $isActive := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+        <li>
+          <a
+            href="{{ .URL }}"
+            {{ if $isActive }}aria-current="page"{{ end }}
+            class="{{ cond $isActive "underline " "" }}hover:underline focus:underline"
+            >{{ .Name }}</a
+          >
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

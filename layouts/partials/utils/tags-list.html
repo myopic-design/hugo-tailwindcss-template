@@ -1,0 +1,9 @@
+{{ $tags := .GetTerms "tags" }}
+
+<ul aria-label="Tags">
+  {{ range (apply $tags "partial" "utils/tag-pill" ".") }}
+    <li>
+      {{ . }}
+    </li>
+  {{ end }}
+</ul>

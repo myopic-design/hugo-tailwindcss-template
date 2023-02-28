@@ -1,0 +1,3 @@
+{{ $mins := math.Round (div (countwords .) 200.0) }}
+
+{{ cond (le $mins 1) 1 $mins }} minute read

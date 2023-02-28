@@ -1,0 +1,1 @@
+{{ return (.Paginate (where site.RegularPages "Type" "in" (slice "blog" "playground"))).Pages }}

@@ -1,0 +1,7 @@
+{{ define "article-main" }}
+  {{ .Content }}
+
+  {{ partial "article-list" (partial "utils/articles-paginated" .) }}
+
+  {{ partial "pagination" . }}
+{{ end }}

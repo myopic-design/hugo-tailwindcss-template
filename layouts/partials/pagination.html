@@ -1,0 +1,96 @@
+{{ $p := .Paginator }}
+
+{{ if gt $p.TotalPages 1 }}
+  <nav aria-label="pagination">
+    <ul>
+      {{ $adjacent_links := 1 }}
+      {{ $max_links := add (mul $adjacent_links 2) 1 }}
+      {{ $lower_limit := add $adjacent_links 1 }}
+      {{ $upper_limit := sub $p.TotalPages $adjacent_links }}
+      {{ $has_enough_pages := gt $p.TotalPages $max_links }}
+      {{ $show_first := ge $p.PageNumber $max_links }}
+      {{ $show_prev_ellip := gt $p.PageNumber $max_links }}
+      {{ $show_last := le $p.PageNumber (sub $p.TotalPages (sub $max_links 1)) }}
+      {{ $show_next_ellip := lt $p.PageNumber (sub $p.TotalPages (sub $max_links 1)) }}
+
+      {{ with $p.Prev }}
+        <li>
+          <a href="{{ .URL }}"><span aria-hidden="true">&lt; </span>Prev</a>
+        </li>
+      {{ else }}
+        <li>
+          <a role="link" aria-disabled="true"><span aria-hidden="true">&lt; </span>Prev</a>
+        </li>
+      {{ end }}
+
+      {{ if and $has_enough_pages $show_first }}
+        <li>
+          <a href="{{ $p.First.URL }}" aria-label="Page 1 (first)">1</a>
+        </li>
+        {{ if $show_prev_ellip }}
+          <li>
+            <span aria-hidden="true">&hellip;</span>
+          </li>
+        {{ end }}
+      {{ end }}
+
+      {{ range $p.Pagers }}
+        {{ $is_current_page := eq $p . }}
+        {{ $show_page := false }}
+
+        {{ if $has_enough_pages }}
+          {{ if le $p.PageNumber $lower_limit }}
+            {{ if le .PageNumber $max_links }}
+              {{ $show_page = true }}
+            {{ end }}
+          {{ else if ge $p.PageNumber $upper_limit }}
+            {{ if gt .PageNumber (sub $p.TotalPages $max_links) }}
+              {{ $show_page = true }}
+            {{ end }}
+          {{ else }}
+            {{ if and (ge .PageNumber (sub $p.PageNumber $adjacent_links)) (le .PageNumber (add $p.PageNumber $adjacent_links)) }}
+              {{ $show_page = true }}
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          {{ $show_page = true }}
+        {{ end }}
+
+        {{ if $show_page }}
+          {{ if $is_current_page }}
+            <li>
+              <a role="link" aria-current="page" aria-disabled="true" aria-label="Page {{ .PageNumber }}"
+                >{{ .PageNumber }}</a
+              >
+            </li>
+          {{ else }}
+            <li>
+              <a href="{{ .URL }}" aria-label="Page {{ .PageNumber }}">{{ .PageNumber }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ if and $has_enough_pages $show_last }}
+        {{ if $show_next_ellip }}
+          <li>
+            <span aria-hidden="true">&hellip;</span>
+          </li>
+        {{ end }}
+        <li>
+          <a href="{{ $p.Last.URL }}" aria-label="Page {{ $p.TotalPages }} (last)">{{ $p.TotalPages }}</a>
+        </li>
+      {{ end }}
+
+      {{ with $p.Next }}
+        <li>
+          <a href="{{ .URL }}">Next<span aria-hidden="true"> &gt;</span></a>
+        </li>
+      {{ else }}
+        <li>
+          <a role="link" aria-disabled="true">Next<span aria-hidden="true"> &gt;</span></a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}

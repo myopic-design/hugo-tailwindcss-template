@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "hugo-tailwindcss-template",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myopic-design/hugo-tailwindcss-template.git"
+  },
+  "scripts": {
+    "clean": "rm -rf e2e-report e2e-results public resources/_gen .hugo_build.lock hugo_stats.json",
+    "dev": "hugo server --buildDrafts --buildExpired --buildFuture",
+    "build": "hugo --cleanDestinationDir --minify",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
+    "@playwright/test": "1.31.2",
+    "@tailwindcss/typography": "0.5.9",
+    "autoprefixer": "10.4.14",
+    "cssnano": "5.1.15",
+    "husky": "8.0.3",
+    "postcss": "8.4.21",
+    "prettier": "2.8.4",
+    "prettier-plugin-go-template": "0.0.13",
+    "prettier-plugin-tailwindcss": "0.2.5",
+    "tailwindcss": "3.2.7"
+  },
+  "packageManager": "pnpm@7.29.3"
+}

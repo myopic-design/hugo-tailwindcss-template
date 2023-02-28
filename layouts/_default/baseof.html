@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+  {{ partial "head" . }}
+  <body>
+    {{ partial "skip-navigation" . }}
+    {{ partial "body-header" . }}
+    <main id="main">
+      {{ if .IsPage }}<article class="h-entry">{{ else }}<div>{{ end }}
+      {{ block "article-meta" . }}{{ end }}
+      {{ partial "article-header" . }}
+      <div class="{{ cond .IsPage "e-content " "" }}">
+        {{ block "article-main" . }}{{ end }}
+      </div>
+      {{ partial "article-footer" . }}
+      {{ if .IsPage }}</article>{{ else }}</div>{{ end}}
+    </main>
+    {{ partial "body-footer" . }}
+    {{ partial "scripts-async" . }}
+  </body>
+</html>

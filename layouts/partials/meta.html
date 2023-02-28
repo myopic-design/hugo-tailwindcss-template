@@ -1,0 +1,13 @@
+{{ $author := site.Author.name }}
+{{ $description := .Description | default .Summary | default site.Params.description }}
+{{ $themeColor := site.Params.themeColor | default "#000" }}
+{{ $backgroundColor := site.Params.backgroundColor | default "#000" }}
+
+{{ with $author }}<meta name="author" content="{{ . }}" />{{ end }}
+{{ with $description }}<meta name="description" content="{{ . }}" />{{ end }}
+{{ with $themeColor }}<meta name="theme-color" content="{{ . }}" />{{ end }}
+{{ with $backgroundColor }}<meta name="background-color" content="{{ . }}" />{{ end }}
+
+{{ template "_internal/opengraph.html" . }}
+
+{{ hugo.Generator }}

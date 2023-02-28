@@ -1,0 +1,6 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#dde3ed" d="M0 0h400v300H0z"/>
+  <text fill="#8e99ab" font-family="ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="bold">
+    <tspan x="93" y="172">offline</tspan>
+  </text>
+</svg>

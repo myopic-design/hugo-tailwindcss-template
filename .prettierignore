@@ -1,0 +1,6 @@
+/public/
+/resources/_gen/
+/hugo_stats.json
+/package-lock.json
+/pnpm-lock.yaml
+/yarn.lock

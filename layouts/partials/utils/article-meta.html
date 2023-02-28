@@ -1,0 +1,7 @@
+<div>
+  <div>
+    {{ partial "utils/article-time" .Date }}
+    {{- if eq .Section "blog" }} — {{ partial "utils/article-length" .Content }}{{ end -}}
+  </div>
+  {{ partial "utils/tags-list" . }}
+</div>

@@ -1,0 +1,54 @@
+{{ $img := .img }}
+{{ $src := .src }}
+{{ $alt := .alt | default "" }}
+{{ $caption := .caption }}
+{{ $class := .class }}
+
+{{ $ext := $src | path.Ext | replaceRE "^\\." "" }}
+{{ $density := $src | replaceRE "^.+@(\\d+)x\\..+$" "$1" | float }}
+{{ $width := div $img.Width $density }}
+{{ $height := div $img.Height $density }}
+
+{{ $srcsetBreakpoints := slice 384 768 1280 }}
+{{ $sizesBreakpoints := slice 1280 }}
+
+{{ $srcset := slice }}
+{{ range $srcsetBreakpoints }}
+  {{ if lt (mul 1.25 .) $img.Width }}
+    {{ $thumb := $img.Resize (printf "%dx webp" .) }}
+    {{ $srcset = $srcset | append (printf "%s %dw" $thumb.RelPermalink .) }}
+  {{ end }}
+{{ end }}
+{{ if lt (len $srcset) (len $srcsetBreakpoints) }}
+  {{ $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) }}
+{{ end }}
+{{ $srcset = delimit $srcset ", " }}
+
+{{ $sizes := slice }}
+{{ range $sizesBreakpoints }}
+  {{ $sizes = $sizes | append (printf "(min-width: %dpx) %dpx" . .) }}
+{{ end }}
+{{ $sizes = $sizes | append "100vw" }}
+{{ $sizes = delimit $sizes ", " }}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  <picture>
+    <source
+      type="image/webp"
+      {{ printf " srcset=\"%s\"" $srcset | safeHTMLAttr }}
+      {{ if $sizes }}{{ printf " sizes=\"%s\"" $sizes | safeHTMLAttr }}{{ end }}
+    />
+    <img
+      alt="{{ $alt }}"
+      width="{{ $width }}"
+      height="{{ $height }}"
+      src="{{ $img.RelPermalink }}"
+      loading="lazy"
+    />
+  </picture>
+  {{ with $caption }}
+    <figcaption>
+      {{ . | markdownify }}
+    </figcaption>
+  {{ end }}
+</figure>

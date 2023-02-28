@@ -1,0 +1,7 @@
+/e2e-report/
+/e2e-results/
+/node_modules/
+/public/
+/resources/_gen/
+/.hugo_build.lock
+/hugo_stats.json
