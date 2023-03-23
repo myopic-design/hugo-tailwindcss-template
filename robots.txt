@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://myopic.design/sitemap.xml
+Sitemap: https://myopic.design/hugo-tailwindcss-template/sitemap.xml
