@@ -1,0 +1,17 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "public/"
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "csp-xss": "off",
+        "tap-targets": "off"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
