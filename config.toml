@@ -10,6 +10,28 @@ sectionPagesMenu = "main"
 [params]
 description = "A Hugo & Tailwind CSS starter template to hit the ground running"
 
+[[params.csp]]
+directive = "upgrade-insecure-requests"
+values = []
+[[params.csp]]
+directive = "default-src"
+values = ["'none'"]
+[[params.csp]]
+directive = "connect-src"
+values = ["'self'"]
+[[params.csp]]
+directive = "img-src"
+values = ["'self'"]
+[[params.csp]]
+directive = "manifest-src"
+values = ["'self'"]
+[[params.csp]]
+directive = "script-src"
+values = ["'self'"]
+[[params.csp]]
+directive = "style-src"
+values = ["'self'"]
+
 [build]
 writeStats = true
 
