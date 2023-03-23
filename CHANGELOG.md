@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.0.1...v1.1.0) (2023-03-23)
+
+
+### Features
+
+* add CSP meta tag ([c1d5b67](https://github.com/myopic-design/hugo-tailwindcss-template/commit/c1d5b67fc9906774c2c1d90eb3fae914bf659974))
+
 ## [1.0.1](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.0.0...v1.0.1) (2023-03-23)
 
 
