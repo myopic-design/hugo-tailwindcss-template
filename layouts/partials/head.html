@@ -7,9 +7,9 @@
 
   {{ partial "styles" . }}
 
-  <link rel="icon" sizes="any" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+  <link rel="icon" sizes="any" href="{{ "favicon.ico" | relURL }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ "images/logo.svg" | relURL }}" />
+  <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}" />
 
   <link rel="canonical" href="{{ .Permalink | safeURL }}" />
   {{ if .PrevInSection }}<link rel="prev" href="{{ .PrevInSection.Permalink | safeURL }}" />{{ end }}

@@ -4,7 +4,7 @@
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("{{ $serviceWorker.RelPermalink }}", {
-    scope: "/hugo-tailwindcss-template/",
+    scope: "{{ "" | relURL }}",
   });
 
   window.addEventListener("load", () => {
