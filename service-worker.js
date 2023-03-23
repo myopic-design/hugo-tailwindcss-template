@@ -7,20 +7,25 @@
 
 */
 
-const version = "v20230322";
+const version = "v20230323";
 const staticCacheName = version + "-static";
 const pagesCacheName = version + "-pages";
 const imagesCacheName = version + "-images";
 const assetsCacheName = version + "-assets";
 
-const offlinePages = ["/", "/about/", "/blog/", "/hugo-tailwindcss-template/blog/my-third-post/", "/hugo-tailwindcss-template/blog/my-second-post/", "/hugo-tailwindcss-template/blog/my-first-post/"];
+const offlinePages = [
+  "/hugo-tailwindcss-template/",
+  "/hugo-tailwindcss-template/about/",
+  "/hugo-tailwindcss-template/blog/",
+  "/hugo-tailwindcss-template/blog/my-third-post/", "/hugo-tailwindcss-template/blog/my-second-post/", "/hugo-tailwindcss-template/blog/my-first-post/",
+];
 
 const staticAssets = [
-  "/offline.html",
-  "/css/styles.css",
-  "/js/scripts.js",
-  "/favicon.ico",
-  "/images/logo.svg",
+  "/hugo-tailwindcss-template/offline.html",
+  "/hugo-tailwindcss-template/css/styles.css",
+  "/hugo-tailwindcss-template/js/scripts.js",
+  "/hugo-tailwindcss-template/favicon.ico",
+  "/hugo-tailwindcss-template/images/logo.svg",
 ];
 
 const updateStaticCache = () => {
@@ -117,7 +122,7 @@ self.addEventListener("fetch", (event) => {
   const onNetworkReject = async () => {
     if (isRequestOfType(request, "text/html")) {
       const cachedResponse = await readCaches(request);
-      return cachedResponse || readCaches("/offline.html");
+      return cachedResponse || readCaches("/hugo-tailwindcss-template/offline.html");
     }
     if (isRequestOfType(request, "image")) {
       return new Response(`<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
