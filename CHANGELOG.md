@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.1.0...v1.1.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* make sitemap path relative ([c85c11f](https://github.com/myopic-design/hugo-tailwindcss-template/commit/c85c11f6d08a4892a08808c356edae2a925b9c03))
+
 ## [1.1.0](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.0.1...v1.1.0) (2023-03-23)
 
 

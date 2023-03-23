@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "hugo-tailwindcss-template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/myopic-design/hugo-tailwindcss-template.git"
