@@ -13,14 +13,19 @@ const pagesCacheName = version + "-pages";
 const imagesCacheName = version + "-images";
 const assetsCacheName = version + "-assets";
 
-const offlinePages = ["/", "/about/", "/blog/", "{{ $latestArticles }}"];
+const offlinePages = [
+  "{{ relref . "/" }}",
+  "{{ relref . "/about" }}",
+  "{{ relref . "/blog" }}",
+  "{{ $latestArticles }}",
+];
 
 const staticAssets = [
-  "/offline.html",
-  "/css/styles.css",
-  "/js/scripts.js",
-  "/favicon.ico",
-  "/images/logo.svg",
+  "{{ "offline.html" | relURL }}",
+  "{{ "css/styles.css" | relURL }}",
+  "{{ "js/scripts.js" | relURL }}",
+  "{{ "favicon.ico" | relURL }}",
+  "{{ "images/logo.svg" | relURL }}",
 ];
 
 const updateStaticCache = () => {
@@ -117,7 +122,7 @@ self.addEventListener("fetch", (event) => {
   const onNetworkReject = async () => {
     if (isRequestOfType(request, "text/html")) {
       const cachedResponse = await readCaches(request);
-      return cachedResponse || readCaches("/offline.html");
+      return cachedResponse || readCaches("{{ "offline.html" | relURL }}");
     }
     if (isRequestOfType(request, "image")) {
       return new Response(`{{ $offlineImage }}`, { headers: { "content-type": "image/svg+xml" } });

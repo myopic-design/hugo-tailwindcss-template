@@ -4,27 +4,27 @@
   "description": "{{ site.Params.description | default "" }}",
   "theme_color": "{{ site.Params.themeColor | default "#000" }}",
   "background_color": "{{ site.Params.backgroundColor | default "#000" }}",
-  "start_url": "/hugo-tailwindcss-template/?source=pwa",
+  "start_url": "{{ "" | relURL }}?source=pwa",
   "display": "minimal-ui",
   "icons": [
     {
-      "src": "/images/logo-192.png",
+      "src": "{{ "images/logo-192.png" | relURL }}",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/images/logo-512.png",
+      "src": "{{ "images/logo-512.png" | relURL }}",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/images/logo-maskable-192.png",
+      "src": "{{ "images/logo-maskable-192.png" | relURL }}",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/images/logo-maskable-512.png",
+      "src": "{{ "images/logo-maskable-512.png" | relURL }}",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
