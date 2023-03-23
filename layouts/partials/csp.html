@@ -1,0 +1,8 @@
+{{ if hugo.IsProduction }}
+  {{ $csp := slice }}
+  {{ range site.Params.csp }}
+    {{ $csp = $csp | append (printf "%s %s" .directive (delimit .values " ")) }}
+  {{ end }}
+  {{ $csp = delimit $csp "; " }}
+  <meta http-equiv="Content-Security-Policy" content="{{ $csp }}" />
+{{ end }}
