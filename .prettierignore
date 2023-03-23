@@ -1,3 +1,6 @@
+/.lighthouseci/
+/e2e-report/
+/e2e-results/
 /public/
 /resources/_gen/
 /CHANGELOG.md

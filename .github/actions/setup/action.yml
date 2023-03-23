@@ -10,19 +10,23 @@ inputs:
     description: "Node version"
     required: true
     default: "18"
+  pnpm-version:
+    description: "pnpm version"
+    required: true
+    default: "7"
 
 runs:
   using: "composite"
   steps:
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: ${{ inputs.hugo-version }}
-        extended: true
+      run: |
+        wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ inputs.hugo-version }}/hugo_extended_${{ inputs.hugo-version }}_linux-amd64.deb
+        sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      shell: bash
     - name: Set up pnpm
       uses: pnpm/action-setup@v2
       with:
-        version: "7"
+        version: ${{ inputs.pnpm-version }}
     - name: Set up Node ${{ inputs.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -36,4 +40,7 @@ runs:
       shell: bash
     - name: Install PostCSS globally
       run: npm install -g postcss-cli
+      shell: bash
+    - name: Install Lighthouse globally
+      run: npm install -g @lhci/cli
       shell: bash
