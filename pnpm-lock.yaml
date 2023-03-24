@@ -9,7 +9,7 @@ specifiers:
   cssnano: 5.1.15
   husky: 8.0.3
   postcss: 8.4.21
-  prettier: 2.8.6
+  prettier: 2.8.7
   prettier-plugin-go-template: 0.0.13
   prettier-plugin-tailwindcss: 0.2.5
   tailwindcss: 3.2.7
@@ -23,9 +23,9 @@ devDependencies:
   cssnano: 5.1.15_postcss@8.4.21
   husky: 8.0.3
   postcss: 8.4.21
-  prettier: 2.8.6
-  prettier-plugin-go-template: 0.0.13_prettier@2.8.6
-  prettier-plugin-tailwindcss: 0.2.5_prettier@2.8.6
+  prettier: 2.8.7
+  prettier-plugin-go-template: 0.0.13_prettier@2.8.7
+  prettier-plugin-tailwindcss: 0.2.5_prettier@2.8.7
   tailwindcss: 3.2.7_postcss@8.4.21
 
 packages:
@@ -1824,17 +1824,17 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier-plugin-go-template/0.0.13_prettier@2.8.6:
+  /prettier-plugin-go-template/0.0.13_prettier@2.8.7:
     resolution: {integrity: sha512-gG/xT5kd+kCzoMaTchXvdfBdsunyRCV6G8cgdPGPd2V5JGGKXUG7SjzBKU7jaGh2RTeblcAdBb/E+S/duOAMsA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       prettier: ^2.0.0
     dependencies:
-      prettier: 2.8.6
+      prettier: 2.8.7
       ulid: 2.3.0
     dev: true
 
-  /prettier-plugin-tailwindcss/0.2.5_prettier@2.8.6:
+  /prettier-plugin-tailwindcss/0.2.5_prettier@2.8.7:
     resolution: {integrity: sha512-vZ/iKieyCx0WTxHbkf5E1rBlv/ybFk8WTT4hL5W2jlVxum2Zbe0jMUpuQdDrpa4z2vnPiJ5KIWCqL/kd16fKYg==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
@@ -1886,11 +1886,11 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      prettier: 2.8.6
+      prettier: 2.8.7
     dev: true
 
-  /prettier/2.8.6:
-    resolution: {integrity: sha512-mtuzdiBbHwPEgl7NxWlqOkithPyp4VN93V7VeHVWBF+ad3I5avc0RVDT4oImXQy9H/AqxA2NSQH8pSxHW6FYbQ==}
+  /prettier/2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
