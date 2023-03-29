@@ -13,7 +13,7 @@ inputs:
   pnpm-version:
     description: "pnpm version"
     required: true
-    default: "7"
+    default: "8"
 
 runs:
   using: "composite"
