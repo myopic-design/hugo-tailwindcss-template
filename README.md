@@ -3,7 +3,7 @@
 This is a template using:
 
 - ⚡️ [Hugo 0.111](https://gohugo.io/)
-- 🌬️ [Tailwind CSS 3.2](https://tailwindcss.com/)
+- 🌬️ [Tailwind CSS 3.3](https://tailwindcss.com/)
 - 🎭 [Playwright](https://playwright.dev/)
 - 💡 [Lighthouse](https://developer.chrome.com/docs/lighthouse/)
 - 🤖 [CommitLint](https://commitlint.js.org/)
