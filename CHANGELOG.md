@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.1.1...v1.1.2) (2023-04-26)
+
+
+### Bug Fixes
+
+* disable Lighthouse `bf-cache` ([2bdf063](https://github.com/myopic-design/hugo-tailwindcss-template/commit/2bdf0633c724ce4b3f8c4af8d2e0a964bcaabf7d))
+
 ## [1.1.1](https://github.com/myopic-design/hugo-tailwindcss-template/compare/v1.1.0...v1.1.1) (2023-03-23)
 
 
