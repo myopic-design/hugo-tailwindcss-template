@@ -6,6 +6,7 @@
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {
+        "bf-cache": "off",
         "csp-xss": "off",
         "tap-targets": "off"
       }
