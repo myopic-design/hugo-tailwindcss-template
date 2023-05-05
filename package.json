@@ -13,8 +13,8 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.1",
-    "@commitlint/config-conventional": "17.6.1",
+    "@commitlint/cli": "17.6.3",
+    "@commitlint/config-conventional": "17.6.3",
     "@playwright/test": "1.33.0",
     "@tailwindcss/typography": "0.5.9",
     "autoprefixer": "10.4.14",
