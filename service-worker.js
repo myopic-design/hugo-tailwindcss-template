@@ -7,7 +7,7 @@
 
 */
 
-const version = "v20230520";
+const version = "v20230523";
 const staticCacheName = version + "-static";
 const pagesCacheName = version + "-pages";
 const imagesCacheName = version + "-images";
