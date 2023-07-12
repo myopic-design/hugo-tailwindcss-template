@@ -8,5 +8,15 @@
   "editor.tabSize": 2,
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "files.readonlyInclude": {
+    ".lighthouseci/**": true,
+    "e2e-report/**": true,
+    "e2e-results/**": true,
+    "node_modules/**": true,
+    "public/**": true,
+    "resources/_gen/**": true,
+    ".hugo_build.lock": true,
+    "hugo_stats.json": true
   }
 }
